@@ -1,0 +1,19 @@
+name: Intentional Failure Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  fail-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Force failure
+        run: |
+          echo "This step will fail intentionally"
+          exit 1
