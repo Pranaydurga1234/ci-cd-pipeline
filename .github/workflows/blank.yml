@@ -20,4 +20,4 @@ jobs:
           python-version: "3.11"
 
       - name: Run intentional failure script
-        run: python intentional_failure.py
+        run: python test.py
