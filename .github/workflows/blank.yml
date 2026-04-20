@@ -1,9 +1,10 @@
-name: Intentional Failure Pipeline
+name: Intentional Python Failure
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   fail-job:
@@ -13,7 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Force failure
-        run: |
-          echo "This step will fail intentionally"
-          exit 1
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run intentional failure script
+        run: python test.py
