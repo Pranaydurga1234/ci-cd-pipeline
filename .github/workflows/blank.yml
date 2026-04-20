@@ -1,7 +1,7 @@
 name: Intentional Python Failure
 
 on:
-  push:
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -20,4 +20,4 @@ jobs:
           python-version: "3.11"
 
       - name: Run intentional failure script
-        run: python test.py
+        run: python intentional_failure.py
