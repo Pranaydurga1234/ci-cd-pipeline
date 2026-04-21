@@ -15,7 +15,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.
+  region = var.region
 }
 
 resource "random_uuid" "randomid" {}
